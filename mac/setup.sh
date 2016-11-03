@@ -16,7 +16,7 @@ EOF
 
 # use minikube ip in dnsmasq.conf
 minikube start
-echo "address=/hasura.test/$(minikube ip)" > dnsmasq.conf
+echo "address=/.hasura.test/$(minikube ip)" > dnsmasq.conf
 sudo mv dnsmasq.conf /usr/local/etc/dnsmasq.conf
 
 # restart dnsmasq
