@@ -20,4 +20,5 @@ echo "address=/.hasura.test/$(minikube ip)" > dnsmasq.conf
 sudo mv dnsmasq.conf /usr/local/etc/dnsmasq.conf
 
 # restart dnsmasq
-sudo launchctl restart homebrew.mxcl.dnsmasq
+sudo launchctl stop homebrew.mxcl.dnsmasq
+sudo launchctl start homebrew.mxcl.dnsmasq
