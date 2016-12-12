@@ -12,12 +12,12 @@ dscacheutil -flushcache
 sudo mkdir -p /etc/resolver
 sudo tee /etc/resolver/.hasura.test > /dev/null <<EOF
 nameserver 127.0.0.1
+domain test
 EOF
 
 # use minikube ip in dnsmasq.conf
-minikube start
 echo "address=/.hasura.test/$(minikube ip)" > dnsmasq.conf
 sudo mv dnsmasq.conf /usr/local/etc/dnsmasq.conf
 
 # restart dnsmasq
-sudo launchctl stop homebrew.mxcl.dnsmasq
+sudo launchctl restart homebrew.mxcl.dnsmasq
